@@ -6,5 +6,6 @@ import com.innovate.framework.web.mvc.BaseMVCController;
 
 @RestController
 public class SiteAction extends BaseMVCController{
-
+	
+	
 }
