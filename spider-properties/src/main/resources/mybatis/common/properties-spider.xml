@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.innovate.spider.domain.Site">
+	<resultMap id="spiderResultMap" type="com.innovate.spider.domain.Site">
+		<result column="id" 			property="id" 				jdbcType="VARCHAR" />
+		<result column="siteName" 		property="siteName" 		jdbcType="VARCHAR" />
+		<result column="sleepTime" 		property="sleepTime" 		jdbcType="VARCHAR" />
+		<result column="startUrl" 		property="startUrl" 		jdbcType="VARCHAR" />
+		<result column="mainUrlRegex" 	property="mainUrlRegex" 	jdbcType="VARCHAR" />
+		<result column="mainAreaRegex" 	property="mainAreaRegex" 	jdbcType="VARCHAR" />
+		<result column="mainAreaXpath" 	property="mainAreaXpath" 	jdbcType="VARCHAR" />
+		<result column="childUrlRegex" 	property="childUrlRegex" 	jdbcType="VARCHAR" />
+		<result column="childUrlXpath" 	property="childUrlXpath" 	jdbcType="VARCHAR" />
+		<result column="moreUrlRegex" 	property="moreUrlRegex" 	jdbcType="VARCHAR" />
+		<result column="moreUrlXpath" 	property="moreUrlXpath" 	jdbcType="VARCHAR" />
+		<result column="fieldsStr" 		property="fieldsStr" 		jdbcType="VARCHAR" />
+		<result column="createtime" 	property="createtime" 		jdbcType="TIMESTAMP" />
+	</resultMap>
+
+	<!-- 表名 -->
+	<sql id="tableNameSql">
+		d_spider_site_config
+	</sql>
+
+	<!-- 用于select查询、insert的公用抽取的列 -->
+	<sql id="commonSelectColumnsPrefix">
+        	id ,
+        	siteName ,
+        	sleepTime ,
+        	startUrl ,
+        	mainUrlRegex ,
+        	mainAreaRegex ,
+        	mainAreaXpath ,
+        	childUrlRegex ,
+        	childUrlXpath ,
+        	moreUrlRegex ,
+        	moreUrlXpath ,
+        	fieldsStr ,
+        	createtime
+	</sql>
+
+	<!-- 按主键查找条件语句 -->
+	<sql id="conditionOnlyId">
+		id = #{id}
+	</sql>
+	
+	<sql id="mainSql">
+		SELECT
+			<include refid="commonSelectColumnsPrefix"/>
+		FROM
+			<include refid="tableNameSql"/> p
+	</sql>
+
+	<sql id="varSql">
+		<where>
+			<if test="siteName!=null and siteName!=''">and p.siteName like #{siteName} </if>
+		</where>
+	</sql>
+
+	<select id="findPageBy" parameterType="java.util.Map" resultMap="spiderResultMap">
+		SELECT
+			<include refid="commonSelectColumnsPrefix"/>
+		FROM
+			<include refid="tableNameSql"/> p
+	 		<include refid="varSql"/>
+			<if test="SORT != null and SORT != ''">
+	 			order by ${SORT}
+	 			<if test="DIR != null and DIR != ''">
+	 				 ${DIR}
+	 			</if>
+	 		</if>
+	</select>
+	
+	<select id="getById" parameterType="String" resultMap="spiderResultMap">
+		<include refid="mainSql"/>
+		where <include refid="conditionOnlyId"/>
+	</select>
+
+	<select id="getCountBy" parameterType="java.util.Map" resultType="INTEGER">
+		SELECT
+			COUNT(*) AS C
+		FROM
+			<include refid="tableNameSql"/> p
+		<include refid="varSql"/>
+	</select>
+
+	<select id="findListBy" parameterType="java.util.Map" resultMap="spiderResultMap">
+		<include refid="mainSql"/>
+		<include refid="varSql"/>
+	</select>
+
+	<insert id="save" parameterType="com.innovate.spider.domain.Site">
+		insert into
+			<include refid="tableNameSql"/>
+		(
+			<include refid="commonSelectColumnsPrefix"/>
+		)
+		values
+		(
+			#{id, jdbcType=VARCHAR} ,
+			#{siteName, jdbcType=VARCHAR} ,
+			#{sleepTime, jdbcType=VARCHAR} ,
+			#{startUrl, jdbcType=VARCHAR} ,
+			#{mainUrlRegex, jdbcType=VARCHAR} ,
+			#{mainAreaRegex, jdbcType=VARCHAR} ,
+			#{mainAreaXpath, jdbcType=VARCHAR} ,
+			#{childUrlRegex, jdbcType=VARCHAR} ,
+			#{childUrlXpath, jdbcType=VARCHAR} ,
+			#{moreUrlRegex, jdbcType=VARCHAR} ,
+			#{moreUrlXpath, jdbcType=VARCHAR} ,
+			#{fieldsStr, jdbcType=VARCHAR} ,
+			#{createtime, jdbcType=TIMESTAMP}
+		)
+	</insert>
+
+	<update id="update" parameterType="com.innovate.spider.domain.Site">
+		update
+			<include refid="tableNameSql"/>
+		set
+			siteName = #{siteName, jdbcType=VARCHAR} ,
+			sleepTime = #{sleepTime, jdbcType=VARCHAR} ,
+			startUrl = #{startUrl, jdbcType=VARCHAR} ,
+			mainUrlRegex = #{mainUrlRegex, jdbcType=VARCHAR} ,
+			mainAreaRegex = #{mainAreaRegex, jdbcType=VARCHAR} ,
+			mainAreaXpath = #{mainAreaXpath, jdbcType=VARCHAR} ,
+			childUrlRegex = #{childUrlRegex, jdbcType=VARCHAR} ,
+			childUrlXpath = #{childUrlXpath, jdbcType=VARCHAR} ,
+			moreUrlRegex = #{moreUrlRegex, jdbcType=VARCHAR} ,
+			moreUrlXpath = #{moreUrlXpath, jdbcType=VARCHAR} ,
+			fieldsStr = #{fieldsStr, jdbcType=VARCHAR} ,
+			createtime = #{createtime, jdbcType=TIMESTAMP}
+		where <include refid="conditionOnlyId"/>
+	</update>
+
+	<delete id="deleteByIds" parameterType="Object[]">
+		delete from <include refid="tableNameSql"/> 
+		where id in <foreach index="index" item="item" collection="array" separator="," open="(" close=")" >#{item}</foreach>
+	</delete>
+
+	<delete id="deleteById" parameterType="Object">
+		delete from <include refid="tableNameSql"/> where <include refid="conditionOnlyId"/>
+	</delete>
+
+</mapper>

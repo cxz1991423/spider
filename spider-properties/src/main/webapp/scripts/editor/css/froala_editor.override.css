@@ -1,0 +1,47 @@
+/* 字体大小 隐藏底部滚动条 */
+.fr-command.fr-btn+.fr-dropdown-menu .fr-dropdown-wrapper .fr-dropdown-content{
+	overflow-y: auto !important;
+    overflow-x: hidden !important;
+}
+/* 快速插入 颜色适配主题*/
+.red-theme.fr-box a.fr-floating-btn svg{
+	fill: red
+}
+.red-theme .fr-qi-helper a.fr-btn.fr-floating-btn{
+	color: red
+}
+.red-theme .fr-floating-btn:hover{
+	color: #ffca28 !important
+}
+.dark-theme.fr-box a.fr-floating-btn svg{
+	fill: #333
+}
+.dark-theme .fr-qi-helper a.fr-btn.fr-floating-btn{
+	color: #333
+}
+.dark-theme .fr-floating-btn:hover{
+	color: #42a5f5 !important
+}
+.royal-theme.fr-box a.fr-floating-btn svg{
+	fill: royal
+}
+.royal-theme .fr-qi-helper a.fr-btn.fr-floating-btn{
+	color: royal
+}
+.royal-theme .fr-floating-btn:hover{
+	color: #e4d9ee !important
+}
+.gray-theme.fr-box a.fr-floating-btn svg{
+	fill: gray
+}
+.gray-theme .fr-qi-helper a.fr-btn.fr-floating-btn{
+	color: gray
+}
+.gray-theme .fr-floating-btn:hover{
+	color: #0097a7 !important
+}
+/* 隐藏部分功能 */
+[data-cmd="image"],/* 图片快速插入 */
+.fr-separator.fr-hs/* 代码块 */{
+	display: none !important;
+}

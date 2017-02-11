@@ -1,0 +1,35 @@
+auth-server: http://192.168.2.222:9999/sso
+server:
+  port: 80
+security:
+  basic:
+    enabled: false
+  oauth2:
+    client:
+      client-id: ssoclient
+      client-secret: ssoclientsecret
+      access-token-uri: ${auth-server}/oauth/token
+      user-authorization-uri: ${auth-server}/oauth/authorize
+      scope: read, write
+    resource:
+      systemId: training
+      token-info-uri: ${auth-server}/oauth/check_token
+      userInfoUri: ${auth-server}/privileges/${security.oauth2.resource.systemId} #\u6388\u6743\u6210\u529F\u540E\uFF0C\u8FD4\u56DE\u7528\u6237\u4FE1\u606F\u548C\u6743\u9650\u4FE1\u606F
+  ignore: /images/**,/**/*.css,/**/*.html,/**/*.png,/**/*.gif,/**/*.jpg,/**/*.ico,/scripts/**,/**/*.js,/WEB-INF/view/**
+  csrf:
+    enable: false
+  frame:
+    deny: false
+spring:
+  jackson:
+    date-format: com.fasterxml.jackson.databind.util.ISO8601DateFormat
+  mvc:
+    view:
+      prefix: /WEB-INF/view/
+      suffix: .jsp
+    default:
+      date:
+        format: yyyy-MM-dd HH:mm:ss
+logging:
+  level:
+    org.springframework.security: DEBUG

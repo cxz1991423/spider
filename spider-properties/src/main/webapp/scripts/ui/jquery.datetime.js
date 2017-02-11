@@ -1,0 +1,1 @@
+(function(a){a.fn.datetime=function(b){if(!this.length){return this}b=a.extend(true,{width:"100px",height:"20px",dateFmt:"yyyy-MM-dd",skin:"ext"},b);var c=a(this);c.click(function(){if(!$dp){$dp={}}else{$dp.hide()}WdatePicker(b)}).addClass("Wdate")}})(jQuery);

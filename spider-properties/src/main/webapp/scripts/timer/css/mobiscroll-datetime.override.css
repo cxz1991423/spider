@@ -1,0 +1,20 @@
+.dw-persp{
+	font-family: 'Microsoft YaHei';
+}
+.dwl{
+	font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+}
+
+/*按钮字体颜色和字间距 */
+.android-ics.light .dwb {
+	color: #31B6E7;
+	font-family: "Arial","Microsoft YaHei","黑体","宋体",sans-serif;
+}
+.dwb-e:hover{
+	color: #fff !important;
+	background-color: #53c1e9 !important;
+}
+.dwb-e{
+	color: #53c1e9 !important;
+}
+

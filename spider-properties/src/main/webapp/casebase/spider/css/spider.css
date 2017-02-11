@@ -1,0 +1,152 @@
+* {
+	font-family: "微软雅黑";
+	margin: 0;
+	padding: 0;
+}
+
+#spider-main {
+	position: absolute;
+	width: 800px;
+	left: 50%;
+	margin-left: -400px;
+	padding-top: 10px;
+}
+
+#configs > ul{
+	list-style: none;
+}
+
+#configs > ul > li
+ {
+	margin: 10px 0;
+}
+
+#configs > ul > li .config{
+	width: 100%;
+	padding: 5px 10px;
+	font-size: 15px;
+}
+#configs > ul > input{
+	color:#8B6C56;
+}
+#configs > ul > hr{
+	margin: 0;
+}
+#configs > ul > button:focus,
+#configs > ul > button:hover{
+	color:#fff;
+}
+.hide{
+	display: none;
+}
+.btn-box{
+	text-align: center;
+}
+.spider-btn {
+    width: 105px;
+    background-color: #4a94d9;
+    color: #fff;
+    margin-right: 22px;
+}
+.spider-add-active,
+.spider-add-btn:active,
+.spider-add-btn:focus{
+    background-color: #008b8b !important;
+    color: #fff;
+}
+.spider-add-btn:hover,
+.spider-add-btn:active,
+.spider-add-btn:focus{
+	border: none !important;
+}
+.spider-add-btn{
+	color: #fff;
+    background-color: #5F9EA0;
+    border: none
+}
+.config-title{
+	font-size: 16px;
+}
+.config-description{
+	font-size:13px;
+	margin-bottom: 0px;
+}
+.spider-delete-btn:hover, 
+.spider-delete-btn:focus {
+    color: #fff !important;
+}
+.spider-delete-btn {
+    float: right;
+    background: #ed143d;
+    color: #fff;
+}
+.config-field-name,
+.config-field-comment,
+.config-field-value{
+	padding: 4px 6px;
+	width: 12%
+}
+.config-field-value {
+    width: 40%;
+}
+.spider-test-btn{
+    color: #fff;
+    background-color: darkmagenta;
+    margin-bottom: 9px;
+}
+.config-field-test {
+    margin-bottom: 0;
+}
+.notice{
+	color: #5F9EA0 !important;
+   	padding-left: 2em;
+}
+.rednotice{
+	color:#ed143d;
+	font-family: initial;
+}
+#result-show {
+    width: 500px;
+    height: 300px;
+    overflow-x: hidden;
+    resize: none;
+}
+button:hover,
+button:focus,
+.radio-label:hover{
+	background-color:red !important;
+	border-color:red !important;
+	color: #fff !important; 
+}
+.radio-label {
+    border: 2px #7D7C7C solid;
+    width: 50px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 3px;
+    background-color: #7D7C7C;
+    color: #fff;
+}
+#ifnext1:checked + .radio-label,
+#ifnext2:checked + .radio-label,
+#ifnext1:checked + .radio-label:hover,
+#ifnext2:checked + .radio-label:hover,
+#ifnext3:checked + .radio-label,
+#ifnext4:checked + .radio-label,
+#ifnext3:checked + .radio-label:hover,
+#ifnext4:checked + .radio-label:hover{
+    border: 2px #4A94D9 solid !important;
+    color: #fff !important;
+    background-color: #4A94D9 !important;
+}
+#ifnext1, #ifnext2, #ifnext3, #ifnext4{
+	display: none
+} 
+.config.targetUrls{
+	height: 300px;
+	overflow: auto;
+	resize: none;
+}
+.custom-value{
+    width: 40% !important;
+}

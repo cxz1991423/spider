@@ -1,0 +1,69 @@
+.flavr-container .flavr-fixer .flavr-outer{
+	background: #ffffff;
+}
+.flavr-container .flavr-fixer .flavr-outer .flavr-content .flavr-message {
+    color: #333;
+}
+
+.flavr-container .flavr-fixer .flavr-outer .flavr-toolbar .flavr-button.lesser{
+	color: #333;
+    background-color: #fff;
+    border:1px solid #ccc;
+}
+.flavr-container .flavr-fixer .flavr-outer .flavr-toolbar .flavr-button.lesser:hover, 
+.flavr-container .flavr-fixer .flavr-outer .flavr-toolbar .flavr-button.lesser:focus {
+	color: #333;
+    background-color: #e6e6e6;
+    border-color: #adadad;
+}
+
+.flavr-container .flavr-fixer .flavr-outer .flavr-toolbar .flavr-button.primary {
+	color: #fff;
+    background-color: #337ab7;
+    border:1px solid #2e6da4;
+}
+.flavr-container .flavr-fixer .flavr-outer .flavr-toolbar .flavr-button.primary:hover, 
+.flavr-container .flavr-fixer .flavr-outer .flavr-toolbar .flavr-button.primary:focus {
+	color: #fff;
+	background-color: #286090;
+    border:1px solid #204d74;
+}
+.flavr-container{
+	z-index: 1999
+}
+#flavr-close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+}
+#flavr-close:after,#flavr-close:before {
+    border-radius: 5px;
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    top: 50%;
+    left: 0;
+    background: #999;
+}
+
+#flavr-close:hover::before, #flavr-close:hover::after {
+    background: #1ebcc5;
+}
+#flavr-close::before {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+#flavr-close::after {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
